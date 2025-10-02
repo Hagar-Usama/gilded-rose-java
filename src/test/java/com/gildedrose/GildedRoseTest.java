@@ -85,6 +85,20 @@ class GildedRoseTest {
         assertEquals(50, app.items[0].quality);
     }
 
+    @Test
+    void agedBrieShouldIncreaseQualityByTwo_whenExpired() {
+        // Arrange
+        Item[] items = new Item[] { new Item("Aged Brie", -1, 40) };
+        GildedRose app = new GildedRose(items);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(42, app.items[0].quality);
+    }
+
+
     /* Sulfuras Tests */ 
 
     //"Sulfuras", being a legendary item, never has to be sold or decreases in Quality
