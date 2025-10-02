@@ -18,16 +18,22 @@ class GildedRose {
                         item.quality = Math.max(0, item.quality - 1);
                     }
             } else {
+                    // if item is  Aged Brie or Backstage passes or sulfuras
+                    
+
                     if (item.name.equals(BACKSTAGE_PASSES)) {
+                        int increment = 0;
                         if (item.sellIn < 11) {
-                            item.quality = Math.min(50, item.quality + 1);
+                            increment++;
                         }
 
                         if (item.sellIn < 6) {
-                            item.quality = Math.min(50, item.quality + 1);
+                            increment++;
                         }
+
+                        item.quality = Math.min(50, item.quality + increment);
                     }
-                    
+
                     item.quality = Math.min(50, item.quality + 1);
             }
 
@@ -42,9 +48,10 @@ class GildedRose {
                                 item.quality = Math.max(0, item.quality - 1);
                             }
                     } else {
-                        item.quality = item.quality - item.quality;
+                        item.quality = 0;
                     }
                 } else {
+                    // item equals Aged Brie
                     item.quality = Math.min(50, item.quality + 1);
                 }
             }
