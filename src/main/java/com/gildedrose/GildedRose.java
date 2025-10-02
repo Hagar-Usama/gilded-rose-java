@@ -40,7 +40,6 @@ class GildedRose {
                     
             }else{
                 item.quality = Math.max(0, item.quality - 1);
-                // item.quality = item.quality - 1;
             }
            
 
@@ -49,17 +48,12 @@ class GildedRose {
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals(AGED_BRIE)) {
-                    if (!item.name.equals(BACKSTAGE_PASSES)) {
-                            if (!item.name.equals(SULFURAS)) {
-                                item.quality = Math.max(0, item.quality - 1);
-                            }
-                    } else {
-                        item.quality = 0;
-                    }
-                } else {
-                    // item equals Aged Brie
+                if (item.name.equals(AGED_BRIE)) {
                     item.quality = Math.min(50, item.quality + 1);
+                } else if (item.name.equals(BACKSTAGE_PASSES)) {
+                    item.quality = 0;
+                } else if (!item.name.equals(SULFURAS)) {
+                    item.quality = Math.max(0, item.quality - 1);
                 }
             }
         }
