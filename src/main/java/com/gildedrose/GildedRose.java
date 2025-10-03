@@ -15,7 +15,8 @@ class GildedRose {
         this.updaters = Map.of(
             AGED_BRIE, new AgedBrieUpdater(),
             BACKSTAGE_PASSES, new BackstagePassUpdater(),
-            SULFURAS, new SulfurasUpdater()
+            SULFURAS, new SulfurasUpdater(),
+            CONJURED, new ConjuredUpdater()
         );
     }
 
