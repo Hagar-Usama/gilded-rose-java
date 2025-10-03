@@ -194,4 +194,31 @@ class GildedRoseTest {
         assertEquals(23, app.items[0].quality);
     }
 
+    @Test
+    void conjuredItemShouldDecreaseQualityByFour_whenSellInZeroOrLess(){
+        // Arrange
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 0, 25) };
+        GildedRose app = new GildedRose(items);
+
+        // Act
+        app.updateQuality();
+        
+        // Assert
+        assertEquals(21, app.items[0].quality);
+
+    }
+
+    @Test
+    void conjuredItemShouldNotDecreaseQualityBelowZero(){
+        // Arrange
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 5, 0) };
+        GildedRose app = new GildedRose(items);
+
+        // Act
+        app.updateQuality();
+        
+        // Assert
+        assertEquals(0, app.items[0].quality);
+    }
+
 }
